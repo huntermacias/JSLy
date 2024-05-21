@@ -3,8 +3,8 @@
 <!-- styles used to render notes section -->
 <style>
 .note {
-  background-color: #121110;
-  opacity: 80%; 
+  /* background-color: #121110; */
+ 
   border-left: 6px solid #007acc;
   border-right: 1px solid white;
   border-top: 1px solid white;
@@ -18,16 +18,14 @@
   margin: 0;
 }
 .note code {
-  background-color: #eef;
-  color: black;
+  /* background-color: #eef; */
+  /* color: black; */
   padding: 2px 4px;
   border-radius: 3px;
-  box-shadow: 2px 2px blue;
+  box-shadow: 1px 1px rgba(12, 212, 18, .5);
   transition: transform .2s;
 }
-.note code:hover {
-    transform: scale(1.5);
-}
+
 </style>
 
 :button-link[Play Game]{size="small" icon="IconStackBlitz" href="https://replit.com/@supercodersf/keyboard-typing-game#createKeyboard.js" blank}
