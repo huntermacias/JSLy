@@ -30,10 +30,24 @@ export default defineAppConfig({
       fluid: true
     },
     header: {
-      logo: true,
+      title: 'JSLy',
+      logo: false,
+      
       showLinkIcon: true,
       exclude: [],
       fluid: true
-    }
+    },
+    footer: {
+      credits: {
+        icon: 'IconDocus',
+        
+        text: 'Powered by JSLy',
+        href: 'https://docus-zeta-red.vercel.app/'
+      },
+      textLinks: [],
+      iconLinks: [],
+      fluid: false
+    },
+   
   }
 })

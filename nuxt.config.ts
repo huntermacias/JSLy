@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxt-themes/tailwind'
   ],
   devtools: { enabled: true },
-
   modules: [
     // Remove it if you don't use Plausible analytics
     // https://github.com/nuxt-modules/plausible
@@ -37,4 +36,14 @@ export default defineNuxtConfig({
   typescript: {
     includeWorkspace: true
   },
+
+  // Custom footer component configuration
+  components: {
+    dirs: [
+      '~/components', // Ensure the components directory is scanned
+    ]
+  },
+
+  // Custom layout configuration to use the custom footer
+
 })
