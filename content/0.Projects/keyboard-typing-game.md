@@ -142,9 +142,9 @@ Event listeners for handling key presses and clicks:
 
 ## Functions
 ### `handleKeyPress()`{lang=ts} 
-- Handles key press events and updates the UI:
+- Handles key press events and updates the UI
 
-```js filename="script.js" {} copy
+```js [script.js] {} copy
 function handleKeyPress(e) {
     const keyPressed = e.keyCode;
     const charPressed = e.key;
@@ -203,9 +203,172 @@ function handleKeyPress(e) {
   </ul>
 </div>
 
+### `handleKeyUp()`{lang=ts} 
+- Handles key release events:
+
+```js [script.js] {} copy
+function handleKeyUp(e) {
+    const keyDepressed = e.keyCode;
+    const keyElement = document.getElementById(keyDepressed);
+
+    if (keyElement) {
+        keyElement.classList.remove('bg-teal-500/70', 'shadow-lg', 'transform', 'scale-95');
+    }
+
+    if (keyDepressed === SHIFT_KEY_CODE || keyDepressed === CAPS_LOCK_KEY_CODE) {
+        allTheKeys.classList.remove('uppercase');
+    }
+
+    if (keyDepressed === SHIFT_KEY_CODE) {
+        Array.from(changeKeys).forEach((key, index) => {
+            key.innerHTML = originalShifterArray[index];
+        });
+    }
+}
+
+```
+
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Removes highlighting from the released key.</li>
+    <li>Restores original values of shifter keys after Shift release.</li>
+  </ul>
+</div>
+
+### `addCharacter()`{lang=ts} 
+- Adds a character to the text box
+
+```js [script.js] {} copy
+function addCharacter(char, className) {
+    const span = document.createElement('span');
+    span.innerText = char;
+    span.classList.add(className);
+    theTextBox.insertBefore(span, cursor);
+}
+```
+
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Creates a span element for the character and inserts it before the cursor.</li>
+  </ul>
+</div>
+
+### `clearText()`{lang=ts} 
+- Clears the text box and resets variables
+
+```js [script.js] {} copy
+function clearText() {
+    theTextBox.innerHTML = '<span id="cursor" class="cursor"></span>';
+    cursor = document.getElementById('cursor');
+    currentIndex = 0;
+    correctCount = 0;
+    startTime = null;
+    clearInterval(timerInterval);
+    updateStats();
+}
+```
+
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Resets the text box, cursor, index, correct count, and timer.</li>
+  </ul>
+</div>
+
+
+### `updateStats()`{lang=ts} 
+- Updates accuracy and WPM
+
+
+```js [script.js] {} copy
+function updateStats() {
+    updateAccuracy();
+    updateWPM();
+}
+```
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Calls functions to update accuracy and WPM.</li>
+  </ul>
+</div>
+
+
+### `updateWPM()`{lang=ts} 
+- Calculates and updates words per minute
+
+```js [script.js] {} copy
+function updateWPM() {
+    const minutes = (new Date() - startTime) / 60000;
+    const wordsTyped = correctCount / 5;
+    const wpm = wordsTyped / minutes || 0;
+    wpmElement.innerText = `${wpm.toFixed(2)}`;
+}
+```
+
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Calculates WPM based on correct characters and elapsed time.</li>
+  </ul>
+</div>
+
+### `updateTime()`{lang=ts} 
+- Updates the elapsed time
+
+```js [script.js] {} copy
+function updateTime() {
+    const seconds = Math.floor((new Date() - startTime) / 1000);
+    timeElement.innerText = `${seconds}s`;
+}
+```
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Updates the time display every second.</li>
+  </ul>
+</div>
+
+### `updateAccuracy()`{lang=ts} 
+- Calculates and updates accuracy
+
+```js [script.js] {} copy
+function updateAccuracy() {
+    const accuracy = (correctCount / currentIndex) * 100 || 0;
+    accuracyElement.innerText = `${accuracy.toFixed(2)}%`;
+}
+```
+
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Calculates accuracy based on correct characters and total typed characters.</li>
+  </ul>
+</div>
+
+### `endGame()`{lang=ts} 
+- Ends the game and stops the timer:
+
+```js [script.js] {} copy
+function endGame() {
+    clearInterval(timerInterval);
+    document.removeEventListener('keydown', handleKeyPress);
+    document.removeEventListener('keyup', handleKeyUp);
+}
+```
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li>Clears the timer interval and removes event listeners.</li>
+  </ul>
+</div>
+
+
 
 ## Final Completed Code
-```html filename="index.html" copy 
+```html [index.html] copy 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -274,7 +437,7 @@ function handleKeyPress(e) {
 </html>
 ```
 
-```js filename="createKeyboard.js" {} copy 
+```js [createKeyboard.js] {} copy 
 const keys = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'del'],
   ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
@@ -326,7 +489,7 @@ keys.forEach((row, rowIndex) => {
 ```
 
 
-```js filename="script.js" {} copy 
+```js [script.js] {} copy 
 // DOM elements
 const theTextBox = document.getElementById('enteredText');
 const allTheKeys = document.getElementById('keyboard');
