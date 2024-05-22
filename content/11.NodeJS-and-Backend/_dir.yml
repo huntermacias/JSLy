@@ -1,0 +1,5 @@
+title: 'Node.js and Backend'
+icon: heroicons-outline:server
+description: 'Explore server-side JavaScript with Node.js, including Express, database integration, and REST APIs.'
+order: 12
+color: '#4CAF50'

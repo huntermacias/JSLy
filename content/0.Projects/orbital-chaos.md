@@ -1,34 +1,79 @@
 # Orbital Chaos
 
-<!-- styles used to render notes section -->
-<style>
-.note {
-  /* background-color: #121110; */
- 
-  border-left: 6px solid #007acc;
-  border-right: 1px solid white;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-radius: 10px; 
-  padding: 12px;
-  font-size: 14px;
-  margin: 20px 0;
-}
-.note p {
-  margin: 0;
-}
-.note code {
-  /* background-color: #eef; */
-  /* color: black; */
-  padding: 2px 4px;
-  border-radius: 3px;
-  box-shadow: 1px 1px rgba(12, 212, 18, .5);
-  transition: transform .2s;
-}
-
-</style>
-
 :button-link[Play Game]{size="small" icon="IconStackBlitz" href="https://replit.com/@supercodersf/particle-animation#script.js" blank}
+
+
+Welcome to the detailed documentation of the Gravity Game. This game simulates particles being attracted to gravity points on a canvas. The particles follow realistic physics and create visually engaging trails.
+
+
+## Introduction
+
+This game involves particles moving under the influence of gravity points. When particles get too close to a gravity point, they get absorbed, and the gravity point's mass increases. This documentation provides a detailed explanation of the code, helping you understand how each part contributes to the overall functionality.
+
+## Vector Class
+
+The `Vector` class provides utility functions for vector mathematics, essential for simulating physics in the game.
+
+```js [script.js] copy
+class Vector {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+
+  add(v) {
+    this.x += v.x;
+    this.y += v.y;
+    return this;
+  }
+
+  subtract(v) {
+    this.x -= v.x;
+    this.y -= v.y;
+    return this;
+  }
+
+  scale(s) {
+    this.x *= s;
+    this.y *= s;
+    return this;
+  }
+
+  length() {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+
+  normalize() {
+    const len = this.length();
+    if (len) {
+      this.scale(1 / len);
+    }
+    return this;
+  }
+
+  distanceTo(other) {
+    const dx = other.x - this.x;
+    const dy = other.y - this.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+}
+```
+
+### Methods
+<div class="note">
+  <p><strong><em>NOTES:</em></strong></p>
+  <ul>
+    <li><code>add(v)</code> Adds another vector to the current vector.</li>
+    <li><code>subtract(v)</code> Subtracts another vector from the current vector.</li>
+    <li><code>scale(s)</code> Scales the vector by a scalar value.</li>
+    <li><code>length()</code> Returns the length (magnitude) of the vector.</li>
+    <li><code>normalize()</code> Normalizes the vector (makes its length equal to 1).</li>
+    <li><code>distanceTo(other)</code> Calculates the distance between the current vector and another vector.</li>
+
+
+  </ul>
+</div>
+
 
 ## Final Completed Code
 ```html [index.html] copy 

@@ -1,32 +1,5 @@
 # Keyboard Typing Game
 
-<!-- styles used to render notes section -->
-<style>
-.note {
-  /* background-color: #121110; */
- 
-  border-left: 6px solid #007acc;
-  border-right: 1px solid white;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-radius: 10px; 
-  padding: 12px;
-  font-size: 14px;
-  margin: 20px 0;
-}
-.note p {
-  margin: 0;
-}
-.note code {
-  /* background-color: #eef; */
-  /* color: black; */
-  padding: 2px 4px;
-  border-radius: 3px;
-  box-shadow: 1px 1px rgba(12, 212, 18, .5);
-  transition: transform .2s;
-}
-
-</style>
 
 :button-link[Play Game]{size="small" icon="IconStackBlitz" href="https://replit.com/@supercodersf/keyboard-typing-game#createKeyboard.js" blank}
 

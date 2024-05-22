@@ -1,0 +1,21 @@
+title: 'Changelog'
+icon: heroicons-outline:document-text
+description: 'Track all notable changes and updates to the project.'
+order: 5
+color: '#FFA726'
+
+# Including individual files and their properties
+files:
+  - name: 'changelog.md'
+    title: 'Changelog'
+    icon: heroicons-outline:calendar
+    description: 'Documenting all notable changes and updates to the project.'
+    order: 1
+
+# Subfolders and their properties (if any)
+folders:
+  - name: 'archive'
+    title: 'Archived Logs'
+    icon: heroicons-outline:archive
+    description: 'Older changelogs and historical records.'
+    order: 2
