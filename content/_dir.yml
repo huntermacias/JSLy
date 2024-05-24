@@ -1,4 +1,2 @@
 title: 'Documentation'
 icon: heroicons-outline:book-open
-exclude:
-  - '2.api' # Excludes the entire API folder

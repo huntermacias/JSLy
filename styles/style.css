@@ -1,11 +1,31 @@
+:root {
+  --background-light: #f9f9f9;
+  --background-dark: #1e1e1e;
+  --text-light: #333;
+  --text-dark: #e0e0e0;
+  --folder-color: #007acc;
+  --file-color: #1ed29f;
+  
+}
+
+/* Dark/Light Mode Styles */
 [data-theme="light"] {
-  --theme: light; 
+  --theme: light;
   --note-bg: #f9f9f9;
   --note-border: #1e1e1e;
   --note-text: #333;
   --note-code-bg: #eef;
   --note-code-text: #333;
   --note-code-shadow: rgba(0, 0, 0, 0.1);
+
+
+  --explanation-code-bg: #c9f0f0;
+
+  --header-border-color: #ccc; /* Light theme border color */
+
+  --background: var(--background-light);
+  --text: var(--text-light);
+
 }
 
 [data-theme="dark"] {
@@ -16,10 +36,21 @@
   --note-code-bg: #333;
   --note-code-text: #e0e0e0;
   --note-code-shadow: rgba(255, 255, 255, 0.1);
+
+
+  --explanation-code-bg: #085145;
+
+  --header-border-color: #444; /* Dark theme border color */
+
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+
 }
 
+
+/* Notes Styles */
 .storage-info {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   margin: 20px 0;
   border-radius: 10px;
@@ -34,6 +65,7 @@
 .cookie-info h2, .cookie-history h2, .web-storage h2 {
   color: #007acc;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .cookie-info p, .cookie-history p, .web-storage p {
@@ -47,13 +79,14 @@
 .note {
   background-color: var(--note-bg);
   border-left: 6px solid var(--note-border);
-  box-shadow: 0 4px 8px var(--note-code-shadow);
-  border-radius: 10px;
-  padding: 16px;
+  box-shadow: 0 4px 12px var(--note-code-shadow);
+  border-radius: 12px;
+  padding: 20px;
   font-size: 16px;
   margin: 20px 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   color: var(--note-text);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .note ul {
@@ -62,7 +95,7 @@
 }
 
 .note li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
   align-items: flex-start;
 }
@@ -70,13 +103,181 @@
 .note code {
   background-color: var(--note-code-bg);
   color: var(--note-code-text);
-  padding: 4px 6px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px var(--note-code-shadow);
-  transition: transform 0.2s;
-  margin-right: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px var(--note-code-shadow);
+  transition: transform 0.2s, background-color 0.3s;
+  margin-right: 10px;
 }
 
 .note li:hover code {
   transform: scale(1.05);
+  background-color: var(--note-code-bg-hover);
+}
+
+.explanation {
+  background-color: var(--note-bg);
+  border-left: 6px solid #4CAF50;
+  box-shadow: 0 4px 12px var(--note-code-shadow);
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 16px;
+  margin: 20px 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--note-text);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.explanation p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #4CAF50;
+}
+
+.explanation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.explanation li {
+  margin-bottom: 12px;
+  display: block;
+  align-items: flex-start;
+}
+
+.explanation code {
+    /* display: go onto next line */
+  display: flex-inline;
+  background-color: var(--note-code-bg);
+  color: var(--note-code-text);
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px var(--note-code-shadow);
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.explanation li:hover code {
+  background-color: var(--explanation-code-bg);
+}
+
+.explanation strong {
+  color: #e91e63;
+}
+
+.explanation em {
+  color: var(--note-text);
+  font-style: italic;
+}
+
+
+/* browser/terminal styles for examples */
+.example-usage {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--note-text);
+  margin: 20px 0;
+}
+
+.example-usage p {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Terminal and Browser styles */
+.terminal, .browser {
+  background-color: var(--note-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--note-code-shadow);
+  margin: 20px 0;
+  overflow: hidden;
+  border: 0.5px solid var(--header-border-color); /* Better border */
+
+}
+
+.terminal-header, .browser-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid var(--header-border-color); /* Better border */
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.buttons span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.buttons .close {
+  background-color: #ff5f56;
+}
+
+.buttons .minimize {
+  background-color: #ffbd2e;
+}
+
+.buttons .maximize {
+  background-color: #27c93f;
+}
+
+
+
+.terminal-body p, .browser-body p {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+
+/* Project Structure: Folder & Files styles */
+.project-structure {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  background-color: var(--background);
+  display: inline-block;
+  width: 100%;
+  
+}
+
+.folder-name {
+  color: var(--folder-color);
+  font-weight: bold;
+}
+
+.folder-content {
+  padding-left: 20px;
+  border-left: 2px solid var(--folder-color);
+}
+
+.file {
+  color: var(--file-color);
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.file::before {
+  content: "📄";
+  margin-right: 8px;
+}
+
+.folder-content .folder-content {
+  padding-left: 20px;
+  border-left: 2px dashed var(--folder-color);
+}
+
+.folder {
+  margin: 10px 0;
+}
+
+.folder .folder-name::before {
+  content: "📁";
+  margin-right: 8px;
 }

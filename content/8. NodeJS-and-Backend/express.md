@@ -77,6 +77,11 @@ app.listen(port, () => {
 });
 ```
 
+```bash
+                        localhost:3000/users/{IdNum}
+Example running on http://localhost:3000/users/123
+```
+
 ### Query Parameters
 Query parameters are a way to pass additional data to the server via the URL.
 
@@ -94,8 +99,106 @@ app.listen(port, () => {
 });
 ```
 
+<div class="explanation">
+  <p><strong><em>EXPLANATION:</em></strong></p>
+  <ul>
+    <li>
+      <strong><code>const express = require('express');</code></strong>
+      <p>First, we import the Express module.</p>
+    </li>
+    <li>
+      <strong><code>const app = express();</code></strong>
+      <p>We create an instance of an Express application.</p>
+    </li>
+    <li>
+      <strong><code>app.get('/search', (req, res) => { ... });</code></strong>
+      <p>We define a route that listens for GET requests at the <code>/search</code> endpoint.</p>
+    </li>
+    <li>
+      <strong><code>const query = req.query.q;</code></strong>
+      <p>We access query parameters using <code>req.query</code>. In this example, <code>req.query.q</code> retrieves the value of the <code>q</code> parameter from the URL.</p>
+    </li>
+    <li>
+      <strong><code>res.send(`Search Query: ${query}`);</code></strong>
+      <p>We send a response back to the client that includes the search query.</p>
+    </li>
+    <li>
+      <strong><code>app.listen(3000, () => { ... });</code></strong>
+      <p>Finally, we start the server and listen on port 3000.</p>
+    </li>
+  </ul>
+</div>
+
+[Once the server is running, you can open your web browser and navigate to]
+<div class="example-usage">
+  <div class="browser">
+    <div class="browser-header">
+      <div class="buttons">
+        <span class="close"></span>
+        <span class="minimize"></span>
+        <span class="maximize"></span>
+      </div>
+    </div>
+    <div class="browser-body">
+      <pre><code class="language-url">http://localhost:3000/search?q=JavaScript</code></pre>
+    </div>
+  </div>
+
+[Expected Output]
+
+  ```bash copy
+  Search Query: JavaScript
+  ```
+
+### Multiple Parameters
+```js [query-params.js] copy
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/search', (req, res) => {
+  const query = req.query.q;
+  const language = req.query.lang;
+  res.send(`Search Query: ${query}, Language: ${language}`);
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
+```
+
+[Once the server is running, you can open your web browser and navigate to]
+
+<code>http://localhost:3000/search?q=JavaScript&lang=en</code>
+
+
+  ```bash copy
+ Search Query: JavaScript, Language: en
+  ```
+
+
 ## Middleware
-Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.
+Middleware functions are a core concept in Express.js, providing a powerful way to handle various aspects of the request-response cycle. Middleware functions have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.
+
+### What is Middleware?
+Middleware functions are functions that can perform the following tasks:
+
+- Execute any code.
+- Make changes to the request and response objects.
+- End the request-response cycle.
+- Call the next middleware function in the stack.
+
+If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
+
+<div class="note">
+  <p><strong><em>Types of Middleware</em></strong></p>  <ul>
+    <li><code>Application-Level Middleware</code>Bound to an instance of express.Router()</li>
+    <li><code>Router-Level Middleware</code> The name of the function, used to call it.</li>
+    <li><code>Error-Handling Middleware</code>Has four arguments (err, req, res, next)</li>
+    <li><code>Built-in Middleware</code>Provided by Express.js, like express.static, express.json, and express.urlencoded</li>
+    <li><code>Third-Party Middleware</code>Creamted by the community, like morgan, body-parser, cors, etc.</li>
+  </ul>
+</div>
 
 ### Using Middleware
 ```js [using-middleware.js] copy
@@ -141,6 +244,10 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
 ```
+
+::alert{type="info"}
+Middleware functions provide a flexible and powerful way to handle the request-response cycle in Express applications. By using middleware, you can modularize your code and handle various tasks effectively.
+::
 
 ## Connecting to a Database
 
