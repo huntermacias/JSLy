@@ -5,7 +5,10 @@
   --text-dark: #e0e0e0;
   --folder-color: #007acc;
   --file-color: #1ed29f;
-  
+  --node-color: #2d2d2d;
+  --connector-color: #4CAF50;
+  --border-light: #ddd;
+  --border-dark: #333;
 }
 
 /* Dark/Light Mode Styles */
@@ -281,3 +284,5 @@
   content: "📁";
   margin-right: 8px;
 }
+
+
