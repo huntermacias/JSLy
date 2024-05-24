@@ -85,7 +85,7 @@ function drawGrid() {
 
 In this section, we add event listeners to handle user interactions. Event listeners are crucial for making the canvas interactive, allowing users to draw tiles by clicking and dragging.
 
-To learn more about event listeners, you can [read the detailed guide](http://localhost:3000/javascript-in-the-browser/events).
+To learn more about event listeners, you can [read the detailed guide](../5.%20JavaScript-In-the-Browser/events.md).
 
 ```js [script.js] 
 canvas.addEventListener("mousedown", () => {
