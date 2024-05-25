@@ -341,7 +341,7 @@ function endGame() {
 ## Final Completed Code
 ::code-group
   ::code-block{label="HTML" preview}
-    ```html [index.html]
+    ```html [index.html] copy
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -400,7 +400,7 @@ function endGame() {
   ::
 
   ::code-block{label="KeyboardJS" preview}
-    ```js [createKeyboard.js]
+    ```js [createKeyboard.js] copy
       const keys = [
       ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'del'],
       ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
@@ -453,7 +453,7 @@ function endGame() {
   ::
 
   ::code-block{label="Script" preview}
-    ```js [script.js]
+    ```js [script.js] copy
     // DOM elements
     const theTextBox = document.getElementById('enteredText');
     const allTheKeys = document.getElementById('keyboard');
