@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@nuxtjs/svg": "^0.4.1",
-    "nuxt-icon": "^0.6.10"
+    "nuxt-icon": "^0.6.10",
+    "nuxt-pageviews": "^1.0.17"
   }
 }

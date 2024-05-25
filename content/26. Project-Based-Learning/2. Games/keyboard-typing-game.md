@@ -3,6 +3,7 @@
 
 :button-link[Play Game]{size="small" icon="IconStackBlitz" href="https://replit.com/@supercodersf/keyboard-typing-game#createKeyboard.js" blank}
 
+# Project Checklist
 
 
 ## DOM Elements
@@ -335,6 +336,33 @@ function endGame() {
     <li>Clears the timer interval and removes event listeners.</li>
   </ul>
 </div>
+
+## Tasks
+
+- <Checkbox id="task-1"><span slot="icon">🖥️</span> Initialize DOM elements</Checkbox>
+- <Checkbox id="task-2"><span slot="icon">📦</span> Initialize statistics elements</Checkbox>
+- <Checkbox id="task-3"><span slot="icon">🔢</span> Define general variables</Checkbox>
+- <Checkbox id="task-4"><span slot="icon">⌨️</span> Define key code constants</Checkbox>
+- <Checkbox id="task-5"><span slot="icon">🖱️</span> Set up event listeners for key press and release</Checkbox>
+- <Checkbox id="task-6"><span slot="icon">📋</span> Set up event listener for screen click</Checkbox>
+- <Checkbox id="task-7"><span slot="icon">📝</span> Implement handleKeyPress function</Checkbox>
+- <Checkbox id="task-8"><span slot="icon">🆙</span> Implement handleKeyUp function</Checkbox>
+- <Checkbox id="task-9"><span slot="icon">🔠</span> Implement addCharacter function</Checkbox>
+- <Checkbox id="task-10"><span slot="icon">🧹</span> Implement clearText function</Checkbox>
+- <Checkbox id="task-11"><span slot="icon">📊</span> Implement updateStats function</Checkbox>
+- <Checkbox id="task-12"><span slot="icon">🕒</span> Implement updateWPM function</Checkbox>
+- <Checkbox id="task-13"><span slot="icon">⏱️</span> Implement updateTime function</Checkbox>
+- <Checkbox id="task-14"><span slot="icon">✅</span> Implement updateAccuracy function</Checkbox>
+- <Checkbox id="task-15"><span slot="icon">🏁</span> Implement endGame function</Checkbox>
+- <Checkbox id="task-16"><span slot="icon">⌨️</span> Create and style the visual keyboard</Checkbox>
+- <Checkbox id="task-17"><span slot="icon">🖋️</span> Create and style the text display area</Checkbox>
+- <Checkbox id="task-18"><span slot="icon">🎨</span> Add styling for highlighted keys</Checkbox>
+- <Checkbox id="task-19"><span slot="icon">🔲</span> Add styling for the cursor</Checkbox>
+- <Checkbox id="task-20"><span slot="icon">⬆️</span> Add logic for handling Shift and Caps Lock</Checkbox>
+- <Checkbox id="task-21"><span slot="icon">🔙</span> Add logic for handling Backspace and Tab</Checkbox>
+- <Checkbox id="task-22"><span slot="icon">🧪</span> Test the application</Checkbox>
+- <Checkbox id="task-23"><span slot="icon">🚀</span> Deploy the application</Checkbox>
+
 
 
 
