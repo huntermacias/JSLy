@@ -50,11 +50,11 @@
 
   --faq-bg: #121212;
   --faq-text: #e0e0e0;
-  --faq-header-bg: #ff335c91;
-  --faq-header-text: #121212;
-  --faq-border: #007acc;
-  --faq-content-bg: #333;
-  --faq-content-text: #e0e0e0;
+  --faq-header-bg: #3399ff;
+  --faq-header-text: #2f1010;
+  --faq-border: #cc0058;
+  --faq-content-bg: rgba(201, 21, 87,0.8);
+  --faq-content-text: #f5f3f3;
 
 
   --explanation-code-bg: #085145;
@@ -314,11 +314,11 @@ details {
 }
 
 details[open] {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(9, 102, 177, 0.2);
 }
 
 details summary {
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   font-size: 18px;
   border-radius: 10px;
@@ -326,10 +326,20 @@ details summary {
   background: var(--faq-header-bg, #007acc);
   color: var(--faq-header-text, #fff);
   border-bottom: 1px solid var(--faq-border, #005fa3);
+  position: relative;
 }
 
-details[open] summary {
-  border-bottom: none;
+details summary::after {
+  content: '\25BC';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 details summary::-webkit-details-marker {
@@ -338,22 +348,28 @@ details summary::-webkit-details-marker {
 }
 
 details p {
-  padding: 15px;
+  padding: 10px;
   margin: 0;
   background: var(--faq-content-bg, #f9f9f9);
   color: var(--faq-content-text, #333);
   font-size: 16px;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid var(--faq-border, #ddd);
+}
+
+details[open] p {
+  animation: fadeIn 0.5s ease-in-out;
   border-radius: 10px;
 
 }
 
-details summary::after {
-  content: '\25BC';
-  float: right;
-  transition: transform 0.3s ease;
-  
-}
-
-details[open] summary::after {
-  transform: rotate(180deg);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
