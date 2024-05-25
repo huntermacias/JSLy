@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '@/styles/style.css',
+    '@/styles/recursion.css',
     
   ],
   // Custom footer component configuration

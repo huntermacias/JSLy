@@ -1,0 +1,111 @@
+:root {
+    --background-light: #f9f9f9;
+    --background-dark: #1e1e1e;
+    --text-light: #333;
+    --text-dark: #e0e0e0;  
+    --recursion-highlight-color: #567bff;
+    --recursion-bg-color: #161415;
+    --button-bg: #007acc;
+    --button-text: #fff;
+    --highlight-color: #3399ff;
+    --stack-border: #ddd;
+}
+
+/* Dark/Light Mode Styles */
+[data-theme="light"] {
+    --theme: light;
+    --background: var(--background-light);  
+    --recursion-bg-color: #dae0ef;
+    --text: var(--text-light);
+}
+
+[data-theme="dark"] {
+    --theme: dark;
+    --background: var(--background-dark);
+    --text: var(--text-dark);
+}
+
+.recursion-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: var(--background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: var(--text);
+}
+
+.code-container {
+    background-color: var(--recursion-bg-color);
+    border: 1px solid var(--stack-border);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+.stack-container {
+    background-color: var(--recursion-bg-color);
+    border: 1px solid var(--stack-border);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.stack {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stack-item {
+    background-color: var(--recursion-highlight-color);
+    color: var(--text-dark);
+    padding: 5px;
+    margin: 5px 0;
+    margin-left: 15px;
+    width: 50%;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    margin-left: 15px;
+
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.step-button:hover {
+    background-color: var(--highlight-color);
+    color: var(--text-dark);
+}
+
+.highlight {
+    background-color: yellow;
+}

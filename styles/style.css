@@ -29,6 +29,16 @@
   --checkbox-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --checkbox-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   --checkbox-transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+
+  --highlight-color: #4CAF50;
+  --stack-bg: #eee;
+  --stack-border: #ccc;
+  --button-bg: #007acc;
+  --button-text: #fff;
+
+  --recursion-highlight-color: #567bff;
+  --recursion-bg-color: #42343797;
+
 }
 
 /* Dark/Light Mode Styles */
@@ -48,6 +58,8 @@
   --checkbox-border: var(--checkbox-border-light);
   --checkbox-text: var(--checkbox-text-light);
   --checkbox-checked-bg: var(--checkbox-checked-bg-light);
+
+  --recursion-bg-color: #dae0ef;
 
 }
 
@@ -458,3 +470,6 @@ details[open] p {
 .checkbox-container .slot {
   color: var(--checkbox-text);
 }
+
+
+
