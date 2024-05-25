@@ -52,6 +52,17 @@ export default defineAppConfig({
       iconLinks: [],
       fluid: false
     },
+    ui: {
+      content: {
+        prose: {
+          code: {
+            icon: {
+              terminal: 'i-ph-terminal-window-duotone'
+            }
+          }
+        }
+      }
+    }
    
   }
 })

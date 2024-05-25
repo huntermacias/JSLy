@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         sepia: 'monokai'
       }
     }
+    
   },
   // https://github.com/nuxt-themes/docus
   extends: [
@@ -26,4 +27,5 @@ export default defineNuxtConfig({
     global: true,
      dirs: ['~/components']
   },
+
 })
