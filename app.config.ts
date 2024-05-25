@@ -18,7 +18,7 @@ export default defineAppConfig({
   docus: {
     title: 'JSLy',
     description: 'The best place to master JavaScript',
-    image: 'https://img.freepik.com/free-vector/matrix-style-binary-code-digital-background-with-falling-numbers_1017-25336.jpg?t=st=1714430629~exp=1714434229~hmac=ca3d9c37e72cb7532000819e7fda366391043f69fbedb5695a0ba1ec8dda957b',
+    image: '/image1.webp',
     socials: {
       twitter: 'huntermacias_',
       github: 'https://github.com/huntermacias',
@@ -46,23 +46,13 @@ export default defineAppConfig({
       credits: {
         icon: 'Logo',
         text: 'Powered by JSLy',
-        href: 'https://docus-zeta-red.vercel.app/'
+        href: 'https://jsly.vercel.app/'
       },
       textLinks: [],
       iconLinks: [],
       fluid: false
     },
-    ui: {
-      content: {
-        prose: {
-          code: {
-            icon: {
-              terminal: 'i-ph-terminal-window-duotone'
-            }
-          }
-        }
-      }
-    }
+   
    
   }
 })

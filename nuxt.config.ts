@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   extends: [
     '@nuxt-themes/docus',
   ],
+  
   devtools: { enabled: true },
   css: [
     '@/styles/style.css',
