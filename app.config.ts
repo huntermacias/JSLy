@@ -28,7 +28,7 @@ export default defineAppConfig({
 
     aside: {
       level: 0,
-      collapsed: false,
+      collapsed: true,
       exclude: []
     },
     main: {
