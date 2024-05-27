@@ -17,9 +17,6 @@ export default defineNuxtConfig({
   extends: [
     '@nuxt-themes/docus',
   ],
-  modules: [
-    'nuxt-pageviews'
-  ],
   devtools: { enabled: true },
   css: [
     '@/styles/style.css',
