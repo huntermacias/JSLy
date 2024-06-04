@@ -17,6 +17,14 @@ export default defineNuxtConfig({
   extends: [
     '@nuxt-themes/docus',
   ],
+  plugins: [
+    '~/plugins/breadcrumb.js'
+  ],
+  // build: {
+  //   transpile: [
+  //     'vue-breadcrumbs'
+  //   ]
+  // },
   devtools: { enabled: true },
   css: [
     '@/styles/style.css',

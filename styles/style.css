@@ -553,3 +553,42 @@ details[open] p {
   background-color: var(--recursion-bg-color);
   transform: scale(1.02);
 }
+
+.breadcrumb {
+  padding: 10px 0;
+  font-size: 14px;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.breadcrumb ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li::after {
+  content: '>';
+  margin-left: 5px;
+}
+
+.breadcrumb li:last-child::after {
+  content: '';
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: var(--link-hover-color);
+}

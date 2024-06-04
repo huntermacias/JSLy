@@ -60,7 +60,7 @@ Browser storage allows web applications to store data locally within the user's 
 
 #### Setting, Getting, and Deleting Cookies
 
-```js [cookies.js] copy
+```js cookies.js copy
 // Setting a cookie
 document.cookie = "username=Hunter Macias; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/";
 
@@ -76,7 +76,6 @@ console.log(getCookie('username')); // "John Doe"
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 ```
 
-![image alt text](/cookie-ex.png)
 
 ### Practical Examples
 
