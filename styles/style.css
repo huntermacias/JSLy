@@ -1,388 +1,140 @@
-:root {
-  --background-light: #f9f9f9;
-  --background-dark: #1e1e1e;
-  --text-light: #333;
-  --text-dark: #e0e0e0;
-  --folder-color: #007acc;
-  --file-color: #1ed29f;
-  --node-color: #2d2d2d;
-  --connector-color: #4CAF50;
-  --border-light: #ddd;
-  --border-dark: #333;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --faq-bg: #fff;
-  --faq-text: #333;
-  --faq-header-bg: #007acc;
-  --faq-header-text: #fff;
-  --faq-border: #005fa3;
-  --faq-content-bg: #f9f9f9;
-  --faq-content-text: #333;
+ *{
+  /* cool documentation page typography */
+  font-family: 'Inter', sans-serif;
 
-  --checkbox-background-light: #f9f9f9;
-  --checkbox-background-dark: #1e1e1e;
-  --checkbox-border-light: #ddd;
-  --checkbox-border-dark: #333;
-  --checkbox-text-light: #333;
-  --checkbox-text-dark: #e0e0e0;
-  --checkbox-checked-bg-light: #bd1e46;
-  --checkbox-checked-bg-dark: #bd1e46;
-  --checkbox-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --checkbox-hover-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  --checkbox-transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
-
-  --highlight-color: #4CAF50;
-  --stack-bg: #eee;
-  --stack-border: #ccc;
-  --button-bg: #007acc;
-  --button-text: #fff;
-
-  --recursion-highlight-color: #567bff;
-  --recursion-bg-color: #42343797;
-}
-
-/* Dark/Light Mode Styles */
-[data-theme="light"] {
-  --theme: light;
-  --note-bg: #f9f9f9;
-  --note-border: #1e1e1e;
-  --note-text: #333;
-  --note-code-bg: #eef;
-  --note-code-text: #333;
-  --note-code-shadow: rgba(0, 0, 0, 0.1);
-  --explanation-code-bg: #c9f0f0;
-  --header-border-color: #ccc; /* Light theme border color */
-  --background: var(--background-light);
-  --text: var(--text-light);
-  --checkbox-background: var(--checkbox-background-light);
-  --checkbox-border: var(--checkbox-border-light);
-  --checkbox-text: var(--checkbox-text-light);
-  --checkbox-checked-bg: var(--checkbox-checked-bg-light);
-
-  --recursion-bg-color: #dae0ef;
-}
-
-[data-theme="dark"] {
-  --theme: dark;
-  --note-bg: #121212;
-  --note-border: #3399ff;
-  --note-text: #e0e0e0;
-  --note-code-bg: #333;
-  --note-code-text: #e0e0e0;
-  --note-code-shadow: rgba(255, 255, 255, 0.1);
-
-  --faq-bg: #121212;
-  --faq-text: #e0e0e0;
-  --faq-header-bg: #3399ff;
-  --faq-header-text: #2f1010;
-  --faq-border: #cc0058;
-  --faq-content-bg: rgba(201, 21, 87, 0.8);
-  --faq-content-text: #f5f3f3;
-  --explanation-code-bg: #085145;
-  --header-border-color: #444; /* Dark theme border color */
-  --background: var(--background-dark);
-  --text: var(--text-dark);
-
-  --checkbox-background: var(--checkbox-background-dark);
-  --checkbox-border: var(--checkbox-border-dark);
-  --checkbox-text: var(--checkbox-text-dark);
-  --checkbox-checked-bg: var(--checkbox-checked-bg-dark);
+  /* hide y scrollbar */
+  scrollbar-width: none;
 }
 
 /* Notes Styles */
-.storage-info {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  margin: 20px 0;
-  border-radius: 10px;
-}
-
-.cookie-info, .cookie-history, .web-storage {
-  border-left: 4px solid var(--note-border);
-  padding-left: 10px;
-  margin-bottom: 20px;
-}
-
-.cookie-info h2, .cookie-history h2, .web-storage h2 {
-  color: #007acc;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.cookie-info p, .cookie-history p, .web-storage p {
-  margin: 10px 0;
-}
-
-.storage-info strong {
-  color: #e91e63;
-}
-
 .note {
-  background-color: var(--note-bg);
-  border-left: 6px solid var(--note-border);
-  box-shadow: 0 4px 12px var(--note-code-shadow);
-  border-radius: 12px;
-  padding: 20px;
-  font-size: 16px;
-  margin: 20px 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: var(--note-text);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  @apply my-4 py-4 px-6 border-l-8 shadow-lg rounded-md;
 }
 
 .note ul {
-  list-style-type: none;
-  padding: 0;
+  @apply list-none p-0;
 }
 
 .note li {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
+  @apply mb-3 flex items-start;
 }
 
 .note code {
-  background-color: var(--note-code-bg);
-  color: var(--note-code-text);
-  padding: 4px 8px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px var(--note-code-shadow);
-  transition: transform 0.2s, background-color 0.3s;
-  margin-right: 10px;
+  @apply bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 py-1 px-2 rounded-md shadow-md mr-2;
 }
 
 .note li:hover code {
-  transform: scale(1.05);
-  background-color: var(--note-code-bg-hover);
+  @apply transform scale-105 bg-gray-300 dark:bg-gray-700;
 }
 
 .explanation {
-  background-color: var(--note-bg);
-  border-left: 6px solid #4CAF50;
-  box-shadow: 0 4px 12px var(--note-code-shadow);
-  border-radius: 12px;
-  padding: 20px;
-  font-size: 16px;
-  margin: 20px 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: var(--note-text);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  @apply py-4 px-6 border-l-8 border-green-600 shadow-lg rounded-md my-4;
 }
 
 .explanation p {
-  margin: 0;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #4CAF50;
+  @apply m-0 font-bold text-green-600 dark:text-green-400 text-lg;
 }
 
 .explanation ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  @apply list-none p-0 m-0;
 }
 
 .explanation li {
-  margin-bottom: 12px;
-  display: block;
-  align-items: flex-start;
+  @apply mb-3 flex items-start;
 }
 
 .explanation code {
-    /* display: go onto next line */
-  display: flex-inline;
-  background-color: var(--note-code-bg);
-  color: var(--note-code-text);
-  padding: 4px 8px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px var(--note-code-shadow);
-  transition: transform 0.2s, background-color 0.3s;
+  @apply bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 py-1 px-2 rounded-md shadow-md mr-2;
 }
 
 .explanation li:hover code {
-  background-color: var(--explanation-code-bg);
+  @apply bg-green-200 dark:bg-green-700;
 }
 
 .explanation strong {
-  color: #e91e63;
+  @apply text-pink-600;
 }
 
 .explanation em {
-  color: var(--note-text);
-  font-style: italic;
-}
-
-
-/* browser/terminal styles for examples */
-.example-usage {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: var(--note-text);
-  margin: 20px 0;
-}
-
-.example-usage p {
-  margin: 10px 0;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Terminal and Browser styles */
-.terminal, .browser {
-  background-color: var(--note-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--note-code-shadow);
-  margin: 20px 0;
-  overflow: hidden;
-  border: 0.5px solid var(--header-border-color); /* Better border */
-
-}
-
-.terminal-header, .browser-header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 2px solid var(--header-border-color); /* Better border */
-}
-
-.buttons {
-  display: flex;
-  gap: 5px;
-}
-
-.buttons span {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.buttons .close {
-  background-color: #ff5f56;
-}
-
-.buttons .minimize {
-  background-color: #ffbd2e;
-}
-
-.buttons .maximize {
-  background-color: #27c93f;
+  @apply italic text-gray-600 dark:text-gray-300;
 }
 
 
 
-.terminal-body p, .browser-body p {
-  margin: 10px 0;
-  padding: 10px;
+.terminal,
+.browser {
+  @apply bg-gray-100 dark:bg-black filter backdrop-blur-sm rounded-lg shadow-gray-500 shadow-sm my-4 overflow-hidden;
 }
 
 
-/* Project Structure: Folder & Files styles */
-.project-structure {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  background-color: var(--background);
-  display: inline-block;
-  width: 100%;
-  
-}
+  .project-structure {
+    @apply bg-[#1e1e1e] text-white p-6 shadow-lg rounded-lg max-w-lg;
+  }
 
-.folder-name {
-  color: var(--folder-color);
-  font-weight: bold;
-}
+  .folder-name {
+    @apply text-blue-400  dark:text-yellow-500 hover:bg-gray-500 rounded-md font-bold flex items-center;
+  }
 
-.folder-content {
-  padding-left: 20px;
-  border-left: 2px solid var(--folder-color);
-}
+  .folder-content {
+    @apply pl-6 border-l-2 border-blue-400;
+  }
 
-.file {
-  color: var(--file-color);
-  margin: 5px 0;
-  font-weight: bold;
-}
+  .file {
+    @apply text-green-400 my-1 font-medium flex items-center;
+  }
 
-.file::before {
-  content: "📄";
-  margin-right: 8px;
-}
+  .file::before {
+    content: '📄'; /* Adding a file icon before each file */
+    @apply mr-2;
+  }
 
-.folder-content .folder-content {
-  padding-left: 20px;
-  border-left: 2px dashed var(--folder-color);
-}
+  .folder-content .folder-content {
+    @apply pl-4 border-l-2 border-dashed border-blue-400 ;
+  }
 
-.folder {
-  margin: 10px 0;
-}
+  .folder {
+    @apply my-2;
+  }
 
-.folder .folder-name::before {
-  content: "📁";
-  margin-right: 8px;
-}
+  .folder .folder-name::before {
+    content: '📁'; /* Adding a folder icon before each folder */
+    @apply mr-2;
+  }
 
 
 /* FAQ Section Styles */
 details {
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  background: var(--faq-bg, #fff);
-  color: var(--faq-text, #333);
+  @apply my-4 shadow-lg transition-all duration-300 ease-in-out overflow-hidden rounded-lg;
 }
 
 details[open] {
-  box-shadow: 0 8px 16px rgba(9, 102, 177, 0.2);
+  @apply shadow-2xl;
 }
 
 details summary {
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  border-radius: 10px;
-  font-weight: bold;
-  background: var(--faq-header-bg, #007acc);
-  color: var(--faq-header-text, #fff);
-  border-bottom: 1px solid var(--faq-border, #005fa3);
-  position: relative;
+  @apply py-3 px-6 cursor-pointer text-lg font-bold bg-[#1E3A8A] text-white dark:bg-[#3B82F6] dark:text-white border-b border-[#1E40AF] dark:border-[#60A5FA] relative rounded-t-lg;
 }
 
 details summary::after {
-  content: '\25BC';
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
+  @apply content-['\25BC'] absolute right-4 top-1/2 transform -translate-y-1/2 transition-transform text-white dark:text-white;
 }
 
 details[open] summary::after {
-  transform: translateY(-50%) rotate(180deg);
+  @apply rotate-180;
 }
 
 details summary::-webkit-details-marker {
-  display: none;
-  
+  @apply hidden;
 }
 
 details p {
-  padding: 10px;
-  margin: 0;
-  background: var(--faq-content-bg, #f9f9f9);
-  color: var(--faq-content-text, #333);
-  font-size: 16px;
-  border-radius: 0 0 10px 10px;
-  border-top: 1px solid var(--faq-border, #ddd);
+  @apply p-6 m-0 bg-[#F9FAFB] dark:bg-[#1F2937] text-[#1F2937] dark:text-[#F9FAFB] border-t border-[#E5E7EB] dark:border-[#374151] rounded-b-lg;
 }
 
-details[open] p {
-  animation: fadeIn 0.5s ease-in-out;
-  border-radius: 10px;
-
-}
 
 @keyframes fadeIn {
   from {
@@ -395,200 +147,52 @@ details[open] p {
   }
 }
 
-
 .checkbox-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: var(--checkbox-background);
-  border: 1px solid var(--checkbox-border);
-  border-radius: 8px;
-  box-shadow: var(--checkbox-shadow);
-  transition: var(--checkbox-transition);
-  
+  @apply flex items-center cursor-pointer my-2 p-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg transition-all;
 }
 
 .checkbox-container:hover {
-  box-shadow: var(--checkbox-hover-shadow);
+  @apply shadow-2xl;
 }
 
 .checkbox-container input {
-  display: none;
+  @apply hidden;
 }
 
 .checkmark {
-  height: 25px;
-  width: 25px;
-  background-color: var(--checkbox-background);
-  border: 2px solid var(--checkbox-border);
-  border-radius: 5px;
-  display: inline-block;
-  margin-right: 10px;
-  position: relative;
-  transition: var(--checkbox-transition);
-  
+  @apply w-6 h-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md relative transition-all mr-2;
 }
 
 .checkbox-container input:checked + .checkmark {
-  background-color: var(--checkbox-checked-bg);
-  border-color: var(--checkbox-checked-bg);
-  transform: scale(1.1);
+  @apply bg-red-600 border-red-600 transform scale-110;
 }
 
 .checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
+  @apply content-[''] absolute hidden;
 }
 
 .checkbox-container input:checked + .checkmark::after {
-  display: block;
-  
+  @apply block;
 }
 
 .checkmark::after {
-  left: 6px;
-  top: 2px;
-  width: 7px;
-  height: 14px;
-  border: solid rgb(234, 234, 11);
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
+  @apply left-2 top-1 w-1.5 h-3.5 border border-white border-t-0 border-l-0 transform rotate-45;
 }
 
 .checkbox-container .icon {
-  margin-right: 10px;
-  /* space letters out */
-  
+  @apply mr-2;
 }
 
 .checkbox-container .slot {
-  color: var(--checkbox-text);
+  @apply text-gray-900 dark:text-gray-100;
 }
 
 
-.sidebar {
-  padding: 15px;
-  background-color: var(--background);
-  color: var(--text);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.toc {
+  @apply p-4 bg-gray-100 dark:bg-gray-800/5 border border-gray-300/30 dark:border-gray-700/30 rounded-lg shadow-lg;
 }
 
-/* Styling for each sidebar item */
-.title-collapsible-button {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  margin: 5px 0;
-  line-height: 1.5;
-  color: var(--text);
-  background: none;
-  border: none;
-  text-align: left;
-  width: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  border-radius: 6px;
+span  {
+  @apply text-gray-700 dark:text-gray-300;
 }
 
-.title-collapsible-button:hover {
-  background-color: var(--recursion-bg-color);
-  transform: scale(1.02);
-}
-
-/* Styling for the icon within the sidebar item */
-.title-collapsible-button .icon {
-  margin-right: 10px;
-  font-size: 20px;
-  color: var(--highlight-color);
-}
-
-/* Styling for the collapsible icon (arrow) */
-.collapsible-icon {
-  margin-left: auto;
-  transition: transform 0.3s;
-}
-
-.collapsible-icon.collapsed {
-  transform: rotate(90deg);
-}
-
-/* Active state styling */
-.title-collapsible-button.active {
-  background-color: var(--recursion-bg-color);
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-/* Styling for nested items */
-.docs-aside-tree.recursive {
-  padding-left: 20px;
-  border-left: 2px solid var(--folder-color);
-  border-radius: 6px;
-}
-
-.docs-aside-tree.recursive .title-collapsible-button {
-  padding-left: 30px;
-  font-size: 14px;
-}
-
-/* Link styling */
-.link.padded {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  font-size: 16px;
-  color: var(--text);
-  text-decoration: none;
-  margin-bottom: 5px;
-  border: 1px solid var(--background);
-  border-radius: 10px;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.link.padded:hover {
-  background-color: var(--recursion-bg-color);
-  transform: scale(1.02);
-}
-
-.breadcrumb {
-  padding: 10px 0;
-  font-size: 14px;
-  background-color: var(--background);
-  color: var(--text);
-}
-
-.breadcrumb ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.breadcrumb li {
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumb li::after {
-  content: '>';
-  margin-left: 5px;
-}
-
-.breadcrumb li:last-child::after {
-  content: '';
-}
-
-.breadcrumb a {
-  text-decoration: none;
-  color: var(--link-color);
-  transition: color 0.3s;
-}
-
-.breadcrumb a:hover {
-  color: var(--link-hover-color);
-}

@@ -1,51 +1,46 @@
-<!-- components/Breadcrumb.vue -->
 <template>
-    <nav class="breadcrumb">
-      <ul>
-        <li v-for="(breadcrumb, index) in breadcrumbs" :key="index">
-          <NuxtLink :to="breadcrumb.link">{{ breadcrumb.text }}</NuxtLink>
-        </li>
-      </ul>
-    </nav>
-  </template>
+  <nav aria-label="breadcrumb" class="p-4 hidden lg:block fixed top-2 z-50 md:left-[70px] bg-inherit text-xs">
+    <ol class="flex space-x-2 md:space-x-4 text-gray-600 dark:text-gray-300">
+      <li v-for="(link, index) in links" :key="index" class="flex items-center">
+        <RouterLink 
+          v-if="link.to" 
+          :to="link.to" 
+          class="flex items-center text-blue-600 dark:text-emerald-400 hover:text-blue-800 dark:hover:text-blue-600 transition-colors duration-200"
+        >
+          <component :is="link.icon" class="h-5 w-5 dark:text-gray-400 text-gray-700 mr-1" />
+          <span>{{ link.label }}</span>
+        </RouterLink>
+        <span 
+          v-else 
+          class="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600 transition-colors duration-200 font-semibold bg-gray-200 dark:bg-gray-700 py-1 rounded-md"
+        >
+          <component :is="link.icon" class="h-5 w-5 dark:text-gray-400 text-gray-700 mr-1" />
+          <span>{{ link.label }}</span>
+        </span>
+        <span v-if="index < links.length - 1" class=" text-gray-400 dark:text-gray-500 ml-3 font-extrabold">|</span>
+      </li>
+    </ol>
+  </nav>
+</template>
 
-  
-  
-  <script setup>
-  defineProps({
-    breadcrumbs: {
-      type: Array,
-      required: true
-    }
-  })
-  </script>
-  
-  <style scoped>
-  .breadcrumb {
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #755555;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .breadcrumb ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .breadcrumb li {
-    margin-right: 10px;
-  }
-  
-  .breadcrumb li::after {
-    content: '>';
-    margin-left: 10px;
-  }
-  
-  .breadcrumb li:last-child::after {
-    content: '';
-  }
-  </style>
-  
+<script setup lang="ts">
+import { HomeIcon, CodeBracketIcon } from '@heroicons/vue/24/solid';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const links = computed(() => {
+  const pathArray = route.path.split('/').filter(p => p);
+
+  const pathLinks = pathArray.map((path, index) => {
+    return {
+      label: path,
+      to: '/' + pathArray.slice(0, index + 1).join('/'),
+      icon: CodeBracketIcon // Default icon, should be overwritten by passed props
+    };
+  });
+
+  return [{ label: 'Home', to: '/', icon: HomeIcon }, ...pathLinks];
+});
+</script>
+ç
