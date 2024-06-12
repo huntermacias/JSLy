@@ -1,40 +1,43 @@
-export default defineNuxtConfig({
+import hljs from 'highlight.js/lib/core'
+import javascript from 'highlight.js/lib/languages/javascript'
 
+// Register languages with highlight.js
+hljs.registerLanguage('javascript', javascript)
+
+export default defineNuxtConfig({
+  extends: [
+    '@nuxt-themes/docus',
+  ],
   content: {
     highlight: {
       theme: {
         // Default theme (same as single string)
         default: 'github-light',
         // Theme used if `html.dark`
-        dark: 'github-dark',
+        dark: 'dracula',
         // Theme used if `html.sepia`
         sepia: 'monokai'
       }
-    }
-    
+    },
   },
-  // https://github.com/nuxt-themes/docus
-  extends: [
-    '@nuxt-themes/docus',
-  ],
   plugins: [
-    '~/plugins/breadcrumb.js'
+    '~/plugins/breadcrumb.js',
+    '~/plugins/sidebar.ts',
+    '~/plugins/highlight.ts' 
   ],
-  // build: {
-  //   transpile: [
-  //     'vue-breadcrumbs'
-  //   ]
-  // },
   devtools: { enabled: true },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
   css: [
     '@/styles/style.css',
     '@/styles/recursion.css',
-    
   ],
-  // Custom footer component configuration
   components: {
     global: true,
-     dirs: ['~/components']
+    dirs: ['~/components']
   },
-
 })

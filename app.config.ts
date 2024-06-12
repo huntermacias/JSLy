@@ -19,6 +19,7 @@ export default defineAppConfig({
     title: 'JSLy',
     description: 'The best place to master JavaScript',
     image: '/image1.webp',
+
     socials: {
       twitter: 'huntermacias_',
       github: 'https://github.com/huntermacias',
@@ -31,6 +32,7 @@ export default defineAppConfig({
       collapsed: true,
       exclude: []
     },
+
     main: {
       padded: true,
       fluid: true
@@ -42,6 +44,12 @@ export default defineAppConfig({
       exclude: [],
       fluid: true
     },
+    // table of content configuration
+    toc: {
+      show: true,
+      maxDepth: 3
+    },
+    
     footer: {
       credits: {
         icon: 'Logo',
