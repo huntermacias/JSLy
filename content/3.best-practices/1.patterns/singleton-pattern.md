@@ -1,8 +1,9 @@
 # Singleton Pattern
 Singletons are classes which can be instantiated once, and can be accessed globally. This single instance can be shared throughout our application, which makes Singletons great for managing global state in an application.
 
+
 <div class='flex items-center justify-center'>
-<img class='rounded-lg' src='https://www.patterns.dev/_astro/singleton-pattern_Z1aBCos.webp' alt='patterns' />
+  <img class='rounded-lg' src='https://javascriptpatterns.vercel.app/design-patterns/singleton-pattern/1.png' alt='patterns' />
 </div>
 
 First, let’s take a look at what a singleton can look like using an ES2015 class. For this example, we’re going to build a `Counter` class that has:
@@ -14,8 +15,6 @@ First, let’s take a look at what a singleton can look like using an ES2015 cla
 
 
 ```js [counter.js] copy
-let counter = 0;
-
 class Counter {
     getInstance() {
         return this;
@@ -40,7 +39,7 @@ However, this class doesn’t meet the criteria for a Singleton! A Singleton sho
 By calling the new method twice, we just set counter1 and counter2 equal to different instances. The values returned by the getInstance method on counter1 and counter2 effectively returned references to different instances: they aren’t strictly equal!
 
 
-<video src="https://res.cloudinary.com/ddxwdqwkr/video/upload/f_auto/v1609056519/patterns.dev/jspat-52_zkwyk1.mp4" loop controls></video>
+<video src="https://res.cloudinary.com/dq8xfyhu4/video/upload/q_auto/v1652717288/FM%20Workshop/Screen_Recording_2022-05-16_at_11.05.50_AM_xzeo41.mov" loop controls></video>
 
 Let’s make sure that only one instance of the Counter class can be created.
 
@@ -49,7 +48,6 @@ One way to make sure that only one instance can be created, is by creating a var
 
 ```js [counter.js] {1, 5-9} copy
 let instance;
-let counter = 0;
 
 class Counter {
   constructor() {
@@ -195,16 +193,37 @@ Let’s take a look at an application that implements the `Counter` example. We 
 
 Both `blueButton.js` and `redButton.js` import the same instance from `counter.js`. This instance is imported as `Counter` in both files.
 
-
-
+<div>
 <video src='https://res.cloudinary.com/ddxwdqwkr/video/upload/f_auto/v1609056519/patterns.dev/jspat-56_wylvcf.mp4' loop controls />
+</div>
 
 When we invoke the increment method in either redButton.js or blueButton.js, the value of the counter property on the Counter instance updates in both files. It doesn’t matter whether we click on the red or blue button: the same value is shared among all instances. This is why the counter keeps incrementing by one, even though we’re invoking the method in different files.
 
 ## Tradeoffs
-Restricting the instantiation to just one instance could potentially save a lot of memory space. Instead of having to set up memory for a new instance each time, we only have to set up memory for that one instance, which is referenced throughout the application. However, Singletons are actually considered an anti-pattern, and can (or.. should) be avoided in JavaScript.
 
-In many programming languages, such as Java or C++, it’s not possible to directly create objects the way we can in JavaScript. In those object-oriented programming languages, we need to create a class, which creates an object. That created object has the value of the instance of the class, just like the value of instance in the JavaScript example.
+::alert{type="success"}
+✔ Restricting the instantiation to just one instance could potentially save a lot of memory space. Instead of having to set up memory for a new instance each time, we only have to set up memory for that one instance, which is referenced throughout the application. However, Singletons are actually considered an anti-pattern, and can (or.. should) be avoided in JavaScript.
+::
+
+::alert{type="warning"}
+⚠️ Unnecessary: ES2015 Modules are singletons by default. We no longer need to explicitly create singletons to achieve this global, non-modifiable behavior.
+::
+
+::alert{type="warning"}
+⚠️ Depedency Hiding: When importing another module, it may not always be obvious that that module is importing a Singleton. This could lead to unexpected value modification within the Singleton, which would be reflected throughout the application.
+::
+
+
+::alert{type="warning"}
+⚠️ Global Scope Pollution: The global behavior of Singletons is essentially the same as a global variable. Global Scope Pollution can end up in accidentally overwriting the value of a global variable, which can lead to a lot of unexpected behavior. Usually, certain parts of the codebase modify the values within global state, whereas others consume that data. The order of execution here is important, understanding the data flow when using a global state can get very tricky as your application grows, and dozens of components rely on each other.
+::
+
+::alert{type="warning"}
+⚠️ Testing: Since we can't create new instances each time, all tests rely on the modification to the global instance of the previous test. The order of the tests matter in this case, and one small modification can lead to an entire test suite failing. After testing, we need to reset the entire instance in order to reset the modifications made by the tests.
+::
+
+
+
 
 However, the class implementation shown in the examples above is actually overkill. Since we can directly create objects in JavaScript, we can simply use a regular object to achieve the exact same result. Let’s cover some of the disadvantages of using Singletons!
 
@@ -233,5 +252,19 @@ export { counter };
 
 Since objects are passed by reference, both `redButton.js` and `blueButton.js` are importing a reference to the same `counter` object. Modifying the value of `count` in either of these files will modify the value on the `counter`, which is visible in both files.
 
-## Testing
-Testing code that relies on a Singleton can get tricky. Since we can’t create new instances each time, all tests rely on the modification to the global instance of the previous test. The order of the tests matter in this case, and one small modification can lead to an entire test suite failing. After testing, we need to reset the entire instance in order to reset the modifications made by the tests.
+## Exercise
+
+### Challenge
+
+Turn this class into a singleton, to ensure that only one DBConnection instance can exist.
+
+<iframe src="https://stackblitz.com/edit/stackblitz-starters-mh7xl6?embed=1&file=dbConnection.js&view=editor"></iframe>
+
+
+### Solution
+
+  <div class="relative group">
+    <div class="blur-on-hover group-hover:blur-none focus:blur-none transition duration-300 ease-in-out">
+      <iframe class="mt-4 w-full h-96 border border-gray-700 rounded-md" src="https://stackblitz.com/edit/stackblitz-starters-mh7xl6?embed=1&file=answer.js&view=editor"></iframe>
+    </div>
+  </div>
