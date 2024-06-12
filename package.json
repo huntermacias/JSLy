@@ -16,11 +16,16 @@
     "@nuxt/ui": "latest",
     "@nuxtjs/plausible": "^1.0.0",
     "@types/node": "^20.12.12",
+    "autoprefixer": "^10.4.19",
     "eslint": "^9.2.0",
-    "nuxt": "^3.11.2"
+    "nuxt": "^3.11.2",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4"
   },
   "dependencies": {
+    "@heroicons/vue": "latest",
     "@nuxtjs/svg": "^0.4.1",
+    "highlight.js": "^11.9.0",
     "nuxt-icon": "^0.6.10",
     "nuxt-pageviews": "^1.0.17"
   }
