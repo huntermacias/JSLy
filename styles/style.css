@@ -196,3 +196,17 @@ span  {
   @apply text-gray-700 dark:text-gray-300;
 }
 
+iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 10px;
+}
+
+.blur-on-hover {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+.blur-on-hover:hover, .blur-on-hover:focus, .blur-on-hover:active {
+  filter: blur(0);
+}
