@@ -194,7 +194,7 @@ Let’s take a look at an application that implements the `Counter` example. We 
 Both `blueButton.js` and `redButton.js` import the same instance from `counter.js`. This instance is imported as `Counter` in both files.
 
 <div>
-<video src='https://res.cloudinary.com/ddxwdqwkr/video/upload/f_auto/v1609056519/patterns.dev/jspat-56_wylvcf.mp4' loop controls />
+  <video src='https://res.cloudinary.com/ddxwdqwkr/video/upload/f_auto/v1609056519/patterns.dev/jspat-56_wylvcf.mp4' loop controls />
 </div>
 
 When we invoke the increment method in either redButton.js or blueButton.js, the value of the counter property on the Counter instance updates in both files. It doesn’t matter whether we click on the red or blue button: the same value is shared among all instances. This is why the counter keeps incrementing by one, even though we’re invoking the method in different files.
@@ -268,3 +268,4 @@ Turn this class into a singleton, to ensure that only one DBConnection instance 
       <iframe class="mt-4 w-full h-96 border border-gray-700 rounded-md" src="https://stackblitz.com/edit/stackblitz-starters-mh7xl6?embed=1&file=answer.js&view=editor"></iframe>
     </div>
   </div>
+
