@@ -212,14 +212,12 @@ iframe {
 }
 
 code, kbd, samp, pre {
-  font-family: 'Fira Code', monospace !important;
   font-size: 1.1em !important;
 }
 
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   code, kbd, samp, pre {
-    color: #d4d4d4 !important;
     background-color: #101014 !important;
   }
 }

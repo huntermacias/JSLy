@@ -21,7 +21,7 @@ const props = defineProps(['projectId', 'openFile', 'type']);
 const isSolution = computed(() => props.type === 'solution');
 
 const stackBlitzUrl = computed(() => {
-  return `https://stackblitz.com/edit/stackblitz-starters-${props.projectId}?embed=1&file=${props.openFile}&view=editor`;
+  return `https://stackblitz.com/edit/${props.projectId}?embed=1&file=${props.openFile}&view=editor`;
 });
 
 watchEffect(() => {
