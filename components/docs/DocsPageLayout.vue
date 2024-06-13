@@ -78,6 +78,7 @@ const closeModal = () => {
             <DocsAside />
         </aside>
 
+     
         <!-- Main Content Area -->
         <main class="flex-1 p-8">
             <article class="max-w-none mt-8">

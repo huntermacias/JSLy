@@ -1,5 +1,5 @@
 {
-  "name": "docus-starter",
+  "name": "JSLy",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "latest",
+    "@nuxt/content": "^2.12.1",
     "@nuxtjs/svg": "^0.4.1",
     "highlight.js": "^11.9.0",
     "nuxt-icon": "^0.6.10",

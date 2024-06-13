@@ -1,21 +1,23 @@
-import hljs from 'highlight.js/lib/core'
-import javascript from 'highlight.js/lib/languages/javascript'
+// import hljs from 'highlight.js/lib/core'
+// import javascript from 'highlight.js/lib/languages/javascript'
 
-// Register languages with highlight.js
-hljs.registerLanguage('javascript', javascript)
+// // Register languages with highlight.js
+// hljs.registerLanguage('javascript', javascript)
 
 export default defineNuxtConfig({
+  modules: ['@nuxt/content'],
   extends: [
     '@nuxt-themes/docus',
   ],
   content: {
+    markdown: {
+      remarkPlugins: ['remark-emoji'],
+      rehypePlugins: [],
+    },
     highlight: {
       theme: {
-        // Default theme (same as single string)
         default: 'github-light',
-        // Theme used if `html.dark`
-        dark: 'dracula',
-        // Theme used if `html.sepia`
+        dark: 'github-dark',
         sepia: 'monokai'
       }
     },
@@ -23,7 +25,7 @@ export default defineNuxtConfig({
   plugins: [
     '~/plugins/breadcrumb.js',
     '~/plugins/sidebar.ts',
-    '~/plugins/highlight.ts' 
+    // '~/plugins/highlight.ts' 
   ],
   devtools: { enabled: true },
   postcss: {
