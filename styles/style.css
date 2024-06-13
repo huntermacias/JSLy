@@ -210,3 +210,14 @@ iframe {
 .blur-on-hover:hover, .blur-on-hover:focus, .blur-on-hover:active {
   filter: blur(0);
 }
+
+code, kbd, samp, pre {
+  font-size: 1.1em !important;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  code, kbd, samp, pre {
+    background-color: #101014 !important;
+  }
+}
