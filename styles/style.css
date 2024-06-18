@@ -116,7 +116,7 @@ details[open] {
 }
 
 details summary {
-  @apply py-3 px-6 cursor-pointer text-lg font-bold bg-[#1E3A8A] text-white dark:bg-[#3B82F6] dark:text-white border-b border-[#1E40AF] dark:border-[#60A5FA] relative rounded-t-lg;
+  @apply py-3 px-6 cursor-pointer text-lg font-bold bg-[#203776] text-white dark:bg-[#1e2c43] dark:text-white border-b border-[#1E40AF] dark:border-[#60A5FA] relative rounded-t-lg;
 }
 
 details summary::after {
@@ -132,8 +132,9 @@ details summary::-webkit-details-marker {
 }
 
 details p {
-  @apply p-6 m-0 bg-[#F9FAFB] dark:bg-[#1F2937] text-[#1F2937] dark:text-[#F9FAFB] border-t border-[#E5E7EB] dark:border-[#374151] rounded-b-lg;
+  @apply p-2 m-0 bg-[#F9FAFB] dark:bg-[#131415] text-[#1F2937] dark:text-[#f9fbfa] rounded-lg shadow-sm dark:shadow-gray-500;
 }
+
 
 
 @keyframes fadeIn {
