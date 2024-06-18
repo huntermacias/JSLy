@@ -23,6 +23,7 @@ export default defineAppConfig({
     socials: {
       twitter: 'huntermacias_',
       github: 'https://github.com/huntermacias',
+      youtube: 'https://www.youtube.com/channel/UCehlaH65-4g7NywRWX0MlkA/videos',
       portfolio: socials.portfolio,
       linkedin: socials.linkedin
     },

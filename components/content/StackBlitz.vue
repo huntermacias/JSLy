@@ -6,10 +6,12 @@
       }"
     >
       <iframe
-        class="mt-4 w-full h-96 border border-gray-700 rounded-md"
+        class="mt-4 w-full border border-gray-700 rounded-md"
+        :style="{ height: iframeHeight + 'px' }"
         :src="stackBlitzUrl"
       ></iframe>
     </div>
+  
   </div>
 </template>
 
