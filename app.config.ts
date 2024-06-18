@@ -29,9 +29,8 @@ export default defineAppConfig({
     },
 
     aside: {
-      level: 0,
+      level: 1,
       collapsed: false,
-      exclude: []
     },
 
     main: {
@@ -45,11 +44,6 @@ export default defineAppConfig({
       exclude: [],
       fluid: true
     },
-    // table of content configuration
-    toc: {
-      show: true,
-      maxDepth: 3
-    },
     
     footer: {
       credits: {
@@ -59,7 +53,7 @@ export default defineAppConfig({
       },
       textLinks: [],
       iconLinks: [],
-      fluid: false
+      fluid: true
     },
    
    

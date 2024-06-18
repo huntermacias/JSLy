@@ -5,7 +5,12 @@
 // hljs.registerLanguage('javascript', javascript)
 
 export default defineNuxtConfig({
+  // pageViews: {
+  //   credentialsFile: './credentials.json',   
+   
+  // },
   modules: ['@nuxt/content'],
+  
   extends: [
     '@nuxt-themes/docus',
   ],
@@ -22,11 +27,11 @@ export default defineNuxtConfig({
       }
     },
   },
-  plugins: [
-    '~/plugins/breadcrumb.js',
-    '~/plugins/sidebar.ts',
+  // plugins: [
+    // '~/plugins/breadcrumb.js',
+    // '~/plugins/sidebar.ts',
     // '~/plugins/highlight.ts' 
-  ],
+  // ],
   devtools: { enabled: true },
   postcss: {
     plugins: {
@@ -42,4 +47,5 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
+  
 })

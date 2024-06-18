@@ -67,13 +67,13 @@ const closeModal = () => {
 </script>
 
 <template>
-    <Container :fluid="config?.main?.fluid" :padded="config?.main?.padded" class="docs-page-content" :class="{
+    <Container :fluid="config?.main?.fluid" :padded="config?.main?.padded" class="" :class="{
         'lg:grid lg:gap-8': config?.main?.fluid,
         'lg:grid-cols-[minmax(300px,300px)_minmax(320px,1fr)]': hasAside,
         'lg:grid-cols-[minmax(320px,1fr)_minmax(250px,250px)]': hasToc && !hasAside,
         'lg:grid-cols-[minmax(300px,300px)_minmax(320px,1fr)_minmax(270px,250px)]': hasAside && hasToc
     }">
-        <!-- Aside -->
+        <!-- Sidebar -->
         <aside v-if="hasAside" ref="asideNav" class="hidden lg:block toc sticky top-20 h-[calc(100vh-80px)] overflow-y-auto">
             <DocsAside />
         </aside>
