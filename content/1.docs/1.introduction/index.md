@@ -1,5 +1,16 @@
 ---
 title: Getting Started
+description: This is the introduction page for the JavaScript documentation.
+author: Hunter Macias
+og:
+  title: Getting Started
+  description: This is the introduction page for the JavaScript documentation.
+  image: /logo3.png
+twitter:
+  card: summary_large_image
+  title: Getting Started
+  description: This is the introduction page for the JavaScript documentation.
+  image: /logo3.png
 ---
 
 # Getting Started
