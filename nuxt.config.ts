@@ -1,5 +1,6 @@
 
 export default defineNuxtConfig({
+  ssr: true,
   modules: ['@nuxt/content'],
   extends: [
     '@nuxt-themes/docus',
