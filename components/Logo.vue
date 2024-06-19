@@ -1,5 +1,5 @@
 <template>
-    <img src="/logo2.webp" alt="JSLy Logo" class="logo"/>
+    <img src="/logo3.png" alt="JSLy Logo" class="logo"/>
   </template>
   
 
