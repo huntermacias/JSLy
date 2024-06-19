@@ -68,7 +68,7 @@ const closeModal = () => {
 
 <template>
     <Container :fluid="config?.main?.fluid" :padded="config?.main?.padded" class="" :class="{
-        'lg:grid lg:gap-8': config?.main?.fluid,
+        'lg:grid lg:gap-8 min-w-screen': config?.main?.fluid,
         'lg:grid-cols-[minmax(300px,300px)_minmax(320px,1fr)]': hasAside,
         'lg:grid-cols-[minmax(320px,1fr)_minmax(250px,250px)]': hasToc && !hasAside,
         'lg:grid-cols-[minmax(300px,300px)_minmax(320px,1fr)_minmax(270px,250px)]': hasAside && hasToc

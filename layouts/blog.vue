@@ -12,7 +12,7 @@ const contentQuery = await queryContent('blog/posts').sort(
     <LandingBanner 
       badge-text="Release v0.01.3" 
       text="Discover the latest updates in JSLy." 
-      link="https://github.com/hcavarsan/kftray/releases/tag/v0.11.7" 
+      link="https://jsly.vercel.app" 
       link-text="Explore Now →"  
     />
   </div>
