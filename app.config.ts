@@ -18,7 +18,9 @@ export default defineAppConfig({
   docus: {
     title: 'JSLy',
     description: 'The best place to master JavaScript',
-    image: '/image1.webp',
+    image: 'logo3.png',
+    ogImage: 'logo3.png',
+    twitterCard: 'summary_large_image',
 
     socials: {
       twitter: 'huntermacias_',
