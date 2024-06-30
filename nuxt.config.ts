@@ -1,4 +1,3 @@
-
 export default defineNuxtConfig({
   ssr: true,
   modules: ['@nuxt/content'],
@@ -35,7 +34,8 @@ export default defineNuxtConfig({
         default: 'github-light',
         dark: 'github-dark',
         sepia: 'monokai'
-      }
+      },
+      langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json', 'yaml', 'toml', 'abap']
     },
   },
   devtools: { enabled: true },
@@ -53,5 +53,4 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
-  
 })

@@ -1,4 +1,9 @@
 <script setup>
+import BlogCard from "~/components/blog/BlogCard.vue";
+
+const contentQuery = await queryContent('blog/posts').sort(
+  { date: -1, }
+).find()
 useSeoMeta({
   title: 'My Amazing Site',
   ogTitle: 'My Amazing Site',
@@ -7,21 +12,16 @@ useSeoMeta({
   ogImage: 'https://ui.aceternity.com/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1441974231531-c6227db76b6e%3Fq%3D80%26w%3D2560%26auto%3Dformat%26fit%3Dcrop%26ixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%253D%253D&w=1080&q=75',
   twitterCard: 'summary_large_image',
 })
-import BlogCard from "~/components/blog/BlogCard.vue";
-
-const contentQuery = await queryContent('blog/posts').sort(
-    { timestamp: -1, }
-).find()
 </script>
 
 <template>
   <div class="relative">
     <Ellipsis right="0" width="85%" blur="150px" />
-    <LandingBanner 
-      badge-text="Release v0.01.3" 
-      text="Discover the latest updates in JSLy." 
-      link="https://jsly.vercel.app" 
-      link-text="Explore Now →"  
+    <LandingBanner
+      badge-text="Release v0.01.3"
+      text="Discover the latest updates in JSLy."
+      link="https://jsly.vercel.app"
+      link-text="Explore Now →"
     />
   </div>
   <div class="relative min-h-screen">
@@ -36,10 +36,10 @@ const contentQuery = await queryContent('blog/posts').sort(
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 xl:grid-cols-3 mx-4 pb-12">
-          <!-- <Ellipsis left="0" width="80rem" top="50rem" blur="150px" /> -->
-          <BlogCard 
-            v-for="post in contentQuery" 
-            :post="post" 
+          <Ellipsis left="0" width="80rem" top="50rem" blur="150px" />
+          <BlogCard
+            v-for="post in contentQuery"
+            :post="post"
             :key="post._id"
             class="transform transition duration-500 hover:scale-105 hover:shadow-lg"
           />
