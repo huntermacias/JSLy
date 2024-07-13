@@ -25,7 +25,7 @@ const { page } = useContent()
           <div class="mb-4">
             <p class="font-light text-gray-500 dark:text-gray-300 text-md">
               Published On
-              <FormatDate :date="new Date()" />
+              <FormatDate :date="new Date(page.date)" />
             </p>
             <h1 class="text-2xl font-extrabold leading-tight lg:mb-6 lg:text-4xl text-gray-900 dark:text-white">
               {{ page.title }}

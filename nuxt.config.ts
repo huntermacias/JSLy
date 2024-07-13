@@ -7,17 +7,17 @@ export default defineNuxtConfig({
   head: {
     title: 'JSLy',
     meta: [
-      { name: 'description', content: 'A comprehensive documentation portal for JavaScript.' },
+      { name: 'description', content: 'Welcome to JSLy.' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'author', content: 'Hunter Macias' },
       { property: 'og:title', content: 'JSLy' },
-      { property: 'og:description', content: 'A comprehensive documentation portal for JavaScript.' },
+      { property: 'og:description', content: 'JSLy Documentation' },
       { property: 'og:image', content: '/logo3.png' },
       { property: 'og:url', content: 'https://jsly.vercel.app' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'JSLy' },
-      { name: 'twitter:description', content: 'A comprehensive documentation portal for JavaScript.' },
+      { name: 'twitter:description', content: 'JSLy: Your Only JavaScript Resource' },
       { name: 'twitter:image', content: '/logo3.png' },
     ],
     link: [
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         dark: 'github-dark',
         sepia: 'monokai'
       },
-      langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json', 'yaml', 'toml', 'abap']
+      langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json', 'yaml', 'toml', 'sql', 'mermaid']
     },
   },
   devtools: { enabled: true },
