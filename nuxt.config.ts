@@ -1,3 +1,5 @@
+import linkPreview from 'markdown-it-link-preview';
+
 export default defineNuxtConfig({
   ssr: true,
   modules: ['@nuxt/content'],
@@ -24,6 +26,7 @@ export default defineNuxtConfig({
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
   },
+
   content: {
     markdown: {
       remarkPlugins: ['remark-emoji'],
@@ -35,7 +38,7 @@ export default defineNuxtConfig({
         dark: 'github-dark',
         sepia: 'monokai'
       },
-      langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json', 'yaml', 'toml', 'sql', 'mermaid']
+      langs: ['java', 'javascript', 'typescript', 'html', 'css', 'bash', 'json', 'yaml', 'markdown', 'toml', 'sql', 'mermaid']
     },
   },
   devtools: { enabled: true },
@@ -53,4 +56,4 @@ export default defineNuxtConfig({
     global: true,
     dirs: ['~/components']
   },
-})
+});

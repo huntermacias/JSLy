@@ -234,7 +234,7 @@ code, samp, pre {
   code, samp, pre {
     background-color: #101014 !important;
     z-index: -10 !important;
-   
+
   }
 }
 
@@ -258,4 +258,33 @@ code .line {
   @apply block px-2 border-l-2 border-transparent hover:ml-0.5 hover:bg-gray-300/30 rounded-md hover:dark:bg-gray-950/50 hover:drop-shadow-sm hover:shadow-gray-400 hover:border-indigo-500 dark:hover:border-pink-400 transition-colors duration-200 !important;
 }
 
+
+.link-preview-container {
+  position: relative;
+  text-decoration: underline !important;
+
+  color: #2fd37c !important; /* Default link color */
+}
+
+.link-preview-container:hover {
+  text-decoration: underline;
+}
+
+.link-preview-container .preview-image {
+  display: none;
+  position: absolute;
+  bottom: 120%; /* Adjust this value to position the image correctly */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 300px; /* Adjust width as needed */
+  max-width: 300px; /* Ensure it doesn't exceed this width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.link-preview-container:hover .preview-image {
+  display: block;
+}
 
