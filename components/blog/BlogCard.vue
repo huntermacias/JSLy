@@ -6,7 +6,7 @@ import FormatDate from "@/components/common/FormatDate.vue";
 
 defineProps({
   post: {
-    type: Object as PropType<ParsedContent>,
+    type: Object as PropType<NuxtContent.ParsedContent>,
     required: true
   },
 })

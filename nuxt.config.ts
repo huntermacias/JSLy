@@ -1,4 +1,3 @@
-import linkPreview from 'markdown-it-link-preview';
 
 export default defineNuxtConfig({
   ssr: true,
@@ -6,25 +5,28 @@ export default defineNuxtConfig({
   extends: [
     '@nuxt-themes/docus',
   ],
-  head: {
-    title: 'JSLy',
-    meta: [
-      { name: 'description', content: 'Welcome to JSLy.' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'author', content: 'Hunter Macias' },
-      { property: 'og:title', content: 'JSLy' },
-      { property: 'og:description', content: 'JSLy Documentation' },
-      { property: 'og:image', content: '/logo3.png' },
-      { property: 'og:url', content: 'https://jsly.vercel.app' },
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'JSLy' },
-      { name: 'twitter:description', content: 'JSLy: Your Only JavaScript Resource' },
-      { name: 'twitter:image', content: '/logo3.png' },
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+  app:{
+
+    head: {
+      title: 'JSLy',
+      meta: [
+        { name: 'description', content: 'Welcome to JSLy.' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'author', content: 'Hunter Macias' },
+        { property: 'og:title', content: 'JSLy' },
+        { property: 'og:description', content: 'JSLy Documentation' },
+        { property: 'og:image', content: '/logo3.png' },
+        { property: 'og:url', content: 'https://jsly.vercel.app' },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'JSLy' },
+        { name: 'twitter:description', content: 'JSLy: Your Only JavaScript Resource' },
+        { name: 'twitter:image', content: '/logo3.png' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
+    },
   },
 
   content: {
